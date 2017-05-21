@@ -1,0 +1,6 @@
+[submodule "modules/cg"]
+	path = modules/cg
+	url = /home/graeme/g/crossgame
+[submodule "modules/cr"]
+	path = modules/cr
+	url = /home/graeme/g/crossrender
