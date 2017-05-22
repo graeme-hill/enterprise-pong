@@ -4,13 +4,13 @@ project(pong)
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(modules/cg)
-add_subdirectory(modules/cr)
+add_subdirectory(modules/xe)
+add_subdirectory(modules/xr)
 
 set(SOURCES Main.cpp Pong.cpp)
 add_executable(pong ${SOURCES})
-target_link_libraries(pong cg)
-target_link_libraries(pong cr)
+target_link_libraries(pong xe)
+target_link_libraries(pong xr)
 
 # Enable warnings
 if(MSVC)

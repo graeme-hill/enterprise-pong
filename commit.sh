@@ -9,8 +9,8 @@ function addCommitPush {
 #git config --file .gitmodules --get-regexp path | awk '{ print $2 }' \
 #    | while read in; do addCommitPush $in; done
 
-addCommitPush modules/cg
-addCommitPush modules/cr
+addCommitPush modules/xe
+addCommitPush modules/xr
 addCommitPush .
 
 

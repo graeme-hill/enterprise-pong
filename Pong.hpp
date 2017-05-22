@@ -1,9 +1,9 @@
 #pragma once
 
-#include "cr/glut/GlutPlatform.hpp"
-#include "cg/Engine.hpp"
+#include "xr/glut/GlutPlatform.hpp"
+#include "xe/Engine.hpp"
 
-using Platform = cr::GlutPlatform;
+using Platform = xr::GlutPlatform;
 using Window = typename Platform::Window;
 using Renderer = typename Platform::Renderer;
 
