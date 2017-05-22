@@ -1,6 +1,6 @@
 [submodule "modules/cg"]
 	path = modules/cg
-	url = /home/graeme/g/crossgame
+	url = git@github.com:graeme-hill/crossengine
 [submodule "modules/cr"]
 	path = modules/cr
-	url = /home/graeme/g/crossrender
+	url = git@github.com:graeme-hill/crossrender
