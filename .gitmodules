@@ -1,6 +1,6 @@
-[submodule "modules/cg"]
-	path = modules/cg
+[submodule "modules/xe"]
+	path = modules/xe
 	url = git@github.com:graeme-hill/crossengine
-[submodule "modules/cr"]
-	path = modules/cr
+[submodule "modules/xr"]
+	path = modules/xr
 	url = git@github.com:graeme-hill/crossrender
