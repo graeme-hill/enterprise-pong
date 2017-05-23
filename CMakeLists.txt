@@ -13,12 +13,10 @@ if(NOT GLM_FOUND)
 endif(NOT GLM_FOUND)
 
 add_subdirectory(modules/xe)
-add_subdirectory(modules/xr)
 
-set(SOURCES Main.cpp Pong.cpp)
+set(SOURCES Main.cpp Pong.cpp Paddle.cpp)
 add_executable(pong ${SOURCES})
 target_link_libraries(pong xe)
-target_link_libraries(pong xr)
 
 # Enable warnings
 if(MSVC)

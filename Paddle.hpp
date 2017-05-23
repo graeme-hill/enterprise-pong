@@ -1,9 +1,10 @@
 #pragma once
 
-#include "xe/MeshData.hpp"
+#include "xr/MeshData.hpp"
+#include <vector>
 
 class Paddle
 {
 public:
-	static xe::MeshData getMeshData();
+	static xr::MeshData getMeshData();
 };

@@ -2,6 +2,8 @@
 
 #include "xr/glut/GlutPlatform.hpp"
 #include "xe/Engine.hpp"
+#include "xr/MeshData.hpp"
+#include "Paddle.hpp"
 
 using Platform = xr::GlutPlatform;
 using Window = typename Platform::Window;
@@ -16,4 +18,5 @@ public:
 private:
 	Platform::Window &_window;
 	Platform::Renderer &_renderer;
+	xr::MeshData _paddleMeshData;
 };
