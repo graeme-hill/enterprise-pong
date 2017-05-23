@@ -10,4 +10,5 @@ function addCommitPush {
 
 git submodule foreach addCommitPush
 addCommitPush
+git submodule foreach git branch
 
