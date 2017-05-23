@@ -1,5 +1,6 @@
-rm -rf ./.backup
-cp -R `pwd`  ./.backup
+rm -rf .backup
+mkdir -p .backup
+cp -R * .backup
 
 function addCommitPush {
    git add . && \
