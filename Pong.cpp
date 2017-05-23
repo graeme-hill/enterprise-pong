@@ -3,7 +3,7 @@
 Pong::Pong(Window &window, Renderer &renderer) :
 	_window(window),
 	_renderer(renderer),
-	_paddleMeshData(Paddle::getMeshData())
+	_paddleMesh(Paddle::getMeshData())
 {
 	std::cout << "Pong ctor\n";
 }
