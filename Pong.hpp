@@ -18,5 +18,5 @@ public:
 private:
 	Platform::Window &_window;
 	Platform::Renderer &_renderer;
-	xr::MeshData _paddleMeshData;
+	Platform::Mesh _paddleMesh;
 };
