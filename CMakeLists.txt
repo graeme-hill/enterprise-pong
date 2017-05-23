@@ -3,6 +3,14 @@ project(pong)
 
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
+# Require GLM
+find_package(GLM REQUIRED)
+include_directories(${GLM_INCLUDE_DIR})
+if(NOT GLM_FOUND)
+    message(ERROR " GLM not found!")
+endif(NOT GLM_FOUND)
 
 add_subdirectory(modules/xe)
 add_subdirectory(modules/xr)
