@@ -3,6 +3,7 @@
 #include "Util.hpp"
 #include "xr/MeshData.hpp"
 #include <vector>
+#include <iostream>
 
 class Paddle
 {

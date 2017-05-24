@@ -3,6 +3,7 @@
 
 xr::MeshData Paddle::getMeshData()
 {
+	std::cout << "getMeshData\n";
 	std::vector<float> positions =
 	{
 		-0.5f, -0.5f, 0.0f,
@@ -12,18 +13,20 @@ xr::MeshData Paddle::getMeshData()
 
 	std::vector<unsigned> indices =
 	{
-		0, 1, 2,
-		1, 2, 3
+		0, 1, 2
 	};
 
 	std::vector<xr::VertexData> vertexData;
 	vertexData.push_back(xr::VertexData(0, 3, positions));
 	xr::MeshData data(vertexData, indices);
+
+	std::cout << "/getMeshData\n";
 	return data;
 }
 
 Material Paddle::getMaterial()
 {
+	std::cout << "getMaterial\n";
 	std::string vert = xe::File::readAll("assets/vert.glsl");
 	std::string frag = xe::File::readAll("assets/frag.glsl");
 	return Material(vert, frag);
