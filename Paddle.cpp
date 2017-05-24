@@ -1,4 +1,5 @@
 #include "Paddle.hpp"
+#include "xe/File.hpp"
 
 xr::MeshData Paddle::getMeshData()
 {
@@ -19,4 +20,11 @@ xr::MeshData Paddle::getMeshData()
 	vertexData.push_back(xr::VertexData(0, 3, positions));
 	xr::MeshData data(vertexData, indices);
 	return data;
+}
+
+Material Paddle::getMaterial()
+{
+	std::string vert = xe::File::readAll("assets/vert.glsl");
+	std::string frag = xe::File::readAll("assets/frag.glsl");
+	return Material(vert, frag);
 }

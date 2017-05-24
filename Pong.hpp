@@ -12,8 +12,8 @@ public:
 	void step(float delta);
 
 private:
-	Platform::Window &_window;
-	Platform::Renderer &_renderer;
-	Platform::Mesh _paddleMesh;
-	Platform::Program _paddle
+	Window &_window;
+	Renderer &_renderer;
+	Mesh _paddleMesh;
+	Material _paddleMaterial;
 };
