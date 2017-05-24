@@ -1,13 +1,9 @@
 #pragma once
 
-#include "xr/glut/GlutPlatform.hpp"
+#include "Util.hpp"
 #include "xe/Engine.hpp"
 #include "xr/MeshData.hpp"
 #include "Paddle.hpp"
-
-using Platform = xr::GlutPlatform;
-using Window = typename Platform::Window;
-using Renderer = typename Platform::Renderer;
 
 class Pong
 {
@@ -19,4 +15,5 @@ private:
 	Platform::Window &_window;
 	Platform::Renderer &_renderer;
 	Platform::Mesh _paddleMesh;
+	Platform::Program _paddle
 };
