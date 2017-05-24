@@ -20,13 +20,11 @@ xr::MeshData Paddle::getMeshData()
 	vertexData.push_back(xr::VertexData(0, 3, positions));
 	xr::MeshData data(vertexData, indices);
 
-	std::cout << "/getMeshData\n";
 	return data;
 }
 
 Material Paddle::getMaterial()
 {
-	std::cout << "getMaterial\n";
 	std::string vert = xe::File::readAll("assets/vert.glsl");
 	std::string frag = xe::File::readAll("assets/frag.glsl");
 	return Material(vert, frag);
