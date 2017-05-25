@@ -12,7 +12,7 @@ xr::MeshData Paddle::getMeshData()
 
 	std::vector<unsigned> indices =
 	{
-		0, 2, 1
+		0, 1, 2
 	};
 
 	std::vector<xr::VertexData> vertexData;
