@@ -11,5 +11,6 @@ Pong::Pong(Window &window, Renderer &renderer) :
 
 void Pong::step(float delta)
 {
-	//std::cout << "step " << delta << std::endl;
+	_renderer.setActiveMaterial(_paddleMaterial);
+	_paddleMesh.render();
 }

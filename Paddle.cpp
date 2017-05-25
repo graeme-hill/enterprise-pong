@@ -3,7 +3,6 @@
 
 xr::MeshData Paddle::getMeshData()
 {
-	std::cout << "getMeshData\n";
 	std::vector<float> positions =
 	{
 		-0.5f, -0.5f, 0.0f,

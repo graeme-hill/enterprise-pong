@@ -18,6 +18,10 @@ set(SOURCES Main.cpp Pong.cpp Paddle.cpp)
 add_executable(pong ${SOURCES})
 target_link_libraries(pong xe)
 
+# copy assets to bin dir
+configure_file(assets/vert.glsl assets/vert.glsl COPYONLY)
+configure_file(assets/frag.glsl assets/frag.glsl COPYONLY)
+
 # Enable warnings
 if(MSVC)
 	# Force to always compile with W4
@@ -26,7 +30,7 @@ if(MSVC)
 	else()
 		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 	endif()
-elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+else()
 	# Update if necessary
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
 endif()
