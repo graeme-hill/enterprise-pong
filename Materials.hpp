@@ -9,7 +9,7 @@ public:
 		_shader(
 			xe::File::readVertShaderText(name),
 			xe::File::readFragShaderText(name)),
-		_mvp(0)
+		_mvp(_shader, "mvp")
 	{ }
 
 	ShaderParameter &mvp() { return _mvp; }

@@ -1,4 +1,5 @@
 #include "Pong.hpp"
+#include <glm/glm.hpp>
 
 Pong::Pong(Window &window, Renderer &renderer) :
 	_window(window),
@@ -11,6 +12,10 @@ Pong::Pong(Window &window, Renderer &renderer) :
 
 void Pong::step(float delta)
 {
+	_camera.translate(delta * 0.01f, 0.0f);
 	_renderer.setActiveShader(_standardMaterial.shader());
+	glm::mat4 vp = _camera.viewProjection();
+	glm::mat4 m(1.0f);
+	_standardMaterial.mvp().set(vp * m);
 	_paddleMesh.render();
 }

@@ -2,6 +2,7 @@
 
 #include "Util.hpp"
 #include "xe/Engine.hpp"
+#include "xe/Camera.hpp"
 #include "xr/MeshData.hpp"
 #include "Paddle.hpp"
 #include "Materials.hpp"
@@ -17,4 +18,5 @@ private:
 	Renderer &_renderer;
 	Mesh _paddleMesh;
 	StandardMaterial _standardMaterial;
+	xe::Camera _camera;
 };
