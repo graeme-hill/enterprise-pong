@@ -1,10 +1,14 @@
 #pragma once
 
+#include "xe/File.hpp"
+
 class StandardMaterial
 {
 public:
 	StandardMaterial(std::string name) :
-		_shader(name),
+		_shader(
+			xe::File::readVertShaderText(name),
+			xe::File::readFragShaderText(name)),
 		_mvp(0)
 	{ }
 

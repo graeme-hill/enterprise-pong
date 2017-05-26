@@ -4,6 +4,7 @@
 #include "xe/Engine.hpp"
 #include "xr/MeshData.hpp"
 #include "Paddle.hpp"
+#include "Materials.hpp"
 
 class Pong
 {
@@ -15,5 +16,5 @@ private:
 	Window &_window;
 	Renderer &_renderer;
 	Mesh _paddleMesh;
-	Material _standardMaterial;
+	StandardMaterial _standardMaterial;
 };

@@ -12,7 +12,7 @@ xr::MeshData Paddle::getMeshData()
 
 	std::vector<unsigned> indices =
 	{
-		0, 1, 2
+		0, 2, 1
 	};
 
 	std::vector<xr::VertexData> vertexData;
@@ -20,11 +20,4 @@ xr::MeshData Paddle::getMeshData()
 	xr::MeshData data(vertexData, indices);
 
 	return data;
-}
-
-Shader Paddle::getShader()
-{
-	std::string vert = xe::File::readAll("assets/vert.glsl");
-	std::string frag = xe::File::readAll("assets/frag.glsl");
-	return Shader(vert, frag);
 }

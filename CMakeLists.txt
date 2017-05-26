@@ -19,8 +19,8 @@ add_executable(pong ${SOURCES})
 target_link_libraries(pong xe)
 
 # copy assets to bin dir
-configure_file(assets/vert.glsl assets/vert.glsl COPYONLY)
-configure_file(assets/frag.glsl assets/frag.glsl COPYONLY)
+configure_file(assets/standard-vert.glsl assets/standard-vert.glsl COPYONLY)
+configure_file(assets/standard-frag.glsl assets/standard-frag.glsl COPYONLY)
 
 # Enable warnings
 if(MSVC)
