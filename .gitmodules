@@ -4,3 +4,6 @@
 [submodule "modules/xr"]
 	path = modules/xr
 	url = git@github.com:graeme-hill/crossrender
+[submodule "modules/xt"]
+	path = modules/xt
+	url = git@github.com:graeme-hill/crosstext
