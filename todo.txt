@@ -1,0 +1,2 @@
+* Actually use FRAG_SUFFIX and VERT_SUFFIX from GlShader instead of hard coding
+  suffixes in File.cpp.
