@@ -22,9 +22,9 @@ xr::MeshData Paddle::getMeshData()
 	return data;
 }
 
-Material Paddle::getMaterial()
+Shader Paddle::getShader()
 {
 	std::string vert = xe::File::readAll("assets/vert.glsl");
 	std::string frag = xe::File::readAll("assets/frag.glsl");
-	return Material(vert, frag);
+	return Shader(vert, frag);
 }

@@ -9,5 +9,4 @@ class Paddle
 {
 public:
 	static xr::MeshData getMeshData();
-	static Material getMaterial();
 };

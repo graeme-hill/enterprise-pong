@@ -15,5 +15,5 @@ private:
 	Window &_window;
 	Renderer &_renderer;
 	Mesh _paddleMesh;
-	Material _paddleMaterial;
+	Material _standardMaterial;
 };
