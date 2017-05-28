@@ -10,13 +10,13 @@
 class Pong
 {
 public:
-	Pong(Window &window, Renderer &Renderer);
+	Pong(P::Window &window, P::Renderer &Renderer);
 	void step(float delta);
 
 private:
-	Window &_window;
-	Renderer &_renderer;
-	Mesh _paddleMesh;
+	P::Window &_window;
+	P::Renderer &_renderer;
+	P::Mesh _paddleMesh;
 	StandardMaterial _standardMaterial;
 	xe::Camera _camera;
 };

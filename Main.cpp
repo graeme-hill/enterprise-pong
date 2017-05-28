@@ -2,5 +2,5 @@
 
 int main()
 {
-	xe::runGame<Platform, Pong>();
+	xe::runGame<P, Pong>();
 }
