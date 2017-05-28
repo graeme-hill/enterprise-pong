@@ -6,14 +6,18 @@
 #include "Paddle.hpp"
 #include "Materials.hpp"
 
+class Pong;
+
+using Engine = xe::Engine<Pong>;
+
 class Pong
 {
 public:
-	Pong(xe::TWindow &window, xe::TRenderer &renderer);
+	Pong(Engine &engine);
 	void step(float delta);
 
 private:
-	xe::TRenderer &_renderer;
+	Engine &_engine;
 	xe::TMesh _paddleMesh;
 	StandardMaterial _standardMaterial;
 	xe::Camera _camera;
