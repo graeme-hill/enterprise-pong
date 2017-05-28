@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Util.hpp"
 #include "xe/Engine.hpp"
 #include "xe/Camera.hpp"
 #include "xe/MeshData.hpp"

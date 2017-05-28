@@ -12,10 +12,10 @@ public:
 		_mvp(_shader, "mvp")
 	{ }
 
-	P::ShaderParameter &mvp() { return _mvp; }
-	P::Shader &shader() { return _shader; }
+	xe::TShaderParameter &mvp() { return _mvp; }
+	xe::TShader &shader() { return _shader; }
 
 private:
-	P::Shader _shader;
-	P::ShaderParameter _mvp;
+	xe::TShader _shader;
+	xe::TShaderParameter _mvp;
 };

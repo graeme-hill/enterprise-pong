@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Util.hpp"
 #include "xe/MeshData.hpp"
 #include <vector>
 #include <iostream>
