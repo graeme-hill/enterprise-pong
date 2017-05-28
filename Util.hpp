@@ -1,8 +1,8 @@
 #pragma once
 
-#include "xr/glut/GlutPlatform.hpp"
+#include "xr/glfw/GlfwPlatform.hpp"
 
-using Platform = xr::GlutPlatform;
+using Platform = xr::GlfwPlatform;
 using Window = typename Platform::Window;
 using Renderer = typename Platform::Renderer;
 using Mesh = typename Platform::Mesh;
