@@ -2,7 +2,6 @@
 #include <glm/glm.hpp>
 
 Pong::Pong(xe::TWindow &window, xe::TRenderer &renderer) :
-	_window(window),
 	_renderer(renderer),
 	_paddleMesh(Paddle::getMeshData()),
 	_standardMaterial("standard")

@@ -13,7 +13,6 @@ public:
 	void step(float delta);
 
 private:
-	xe::TWindow &_window;
 	xe::TRenderer &_renderer;
 	xe::TMesh _paddleMesh;
 	StandardMaterial _standardMaterial;
