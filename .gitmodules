@@ -4,3 +4,6 @@
 [submodule "modules/xt"]
 	path = modules/xt
 	url = git@github.com:graeme-hill/crosstext
+[submodule "modules/glfw"]
+	path = modules/glfw
+	url = git@github.com:graeme-hill/glfw
