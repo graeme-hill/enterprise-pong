@@ -1,7 +1,7 @@
 #include "Paddle.hpp"
 #include "xe/File.hpp"
 
-xr::MeshData Paddle::getMeshData()
+xe::MeshData Paddle::getMeshData()
 {
 	std::vector<float> positions =
 	{
@@ -15,9 +15,9 @@ xr::MeshData Paddle::getMeshData()
 		0, 2, 1
 	};
 
-	std::vector<xr::VertexData> vertexData;
-	vertexData.push_back(xr::VertexData(0, 3, positions));
-	xr::MeshData data(vertexData, indices);
+	std::vector<xe::VertexData> vertexData;
+	vertexData.push_back(xe::VertexData(0, 3, positions));
+	xe::MeshData data(vertexData, indices);
 
 	return data;
 }

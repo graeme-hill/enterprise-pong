@@ -1,5 +1,5 @@
 #pragma once
 
-#include "xr/glfw/GlfwPlatform.hpp"
+#include "xe/glfw/GlfwPlatform.hpp"
 
-using P = xr::GlfwPlatform;
+using P = xe::GlfwPlatform;

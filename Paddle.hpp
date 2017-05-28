@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Util.hpp"
-#include "xr/MeshData.hpp"
+#include "xe/MeshData.hpp"
 #include <vector>
 #include <iostream>
 
 class Paddle
 {
 public:
-	static xr::MeshData getMeshData();
+	static xe::MeshData getMeshData();
 };

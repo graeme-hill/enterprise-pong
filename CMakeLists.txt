@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.5.1)
 project(pong)
 
+# add_definitions(-DPLATFORM_LINUX)
+# add_definitions(-DPLATFORM_GLFW)
+
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
