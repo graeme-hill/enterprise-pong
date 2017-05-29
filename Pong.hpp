@@ -23,4 +23,5 @@ private:
 	xe::Camera _camera;
 
 	Paddle _p1;
+	Paddle _p2;
 };

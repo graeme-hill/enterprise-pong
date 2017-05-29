@@ -34,4 +34,21 @@ void Pong::step(float delta)
 
 	_standardMaterial.mvp().set(vp * _p1.matrix());
 	_paddleMesh.render();
+
+	_p2.transform([delta](glm::mat4 m)
+	{
+		auto translated = glm::translate(m, glm::vec3(2.0f, 0.0f, 0.0f));
+		auto rotated = glm::rotate(
+			translated, delta * -0.003f, glm::vec3(0.0f, 0.0f, 1.0f));
+		return rotated;
+	});
+
+	_standardMaterial.mvp().set(vp * _p2.matrix());
+	_paddleMesh.render();
+
+	_p2.transform([delta](glm::mat4 m)
+	{
+		auto translated = glm::translate(m, glm::vec3(-2.0f, 0.0f, 0.0f));
+		return translated;
+	});
 }
