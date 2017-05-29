@@ -21,4 +21,6 @@ private:
 	xe::TMesh _paddleMesh;
 	StandardMaterial _standardMaterial;
 	xe::Camera _camera;
+
+	Paddle _p1;
 };

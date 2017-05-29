@@ -26,7 +26,12 @@ void Pong::step(float delta)
 
 	renderer.setActiveShader(_standardMaterial.shader());
 	glm::mat4 vp = _camera.viewProjection();
-	glm::mat4 m(1.0f);
-	_standardMaterial.mvp().set(vp * m);
+
+	_p1.transform([delta](glm::mat4 m)
+	{
+		return glm::rotate(m, delta * 0.003f, glm::vec3(0.0f, 1.0f, 0.0f));
+	});
+
+	_standardMaterial.mvp().set(vp * _p1.matrix());
 	_paddleMesh.render();
 }
