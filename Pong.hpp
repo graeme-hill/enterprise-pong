@@ -4,6 +4,7 @@
 #include "xe/Camera.hpp"
 #include "xe/MeshData.hpp"
 #include "Paddle.hpp"
+#include "Court.hpp"
 #include "Materials.hpp"
 
 class Pong;
@@ -19,7 +20,9 @@ public:
 private:
 	Engine &_engine;
 	xe::TMesh _paddleMesh;
+	xe::TMesh _courtMesh;
 	StandardMaterial _standardMaterial;
+	CourtMaterial _courtMaterial;
 	xe::Camera _camera;
 
 	Paddle _p1;
