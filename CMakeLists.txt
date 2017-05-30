@@ -17,7 +17,7 @@ endif(NOT GLM_FOUND)
 
 add_subdirectory(modules/xe)
 
-set(SOURCES Main.cpp Pong.cpp Paddle.cpp Court.cpp)
+set(SOURCES Main.cpp Pong.cpp Paddle.cpp Court.cpp Ball.cpp)
 add_executable(pong ${SOURCES})
 target_link_libraries(pong xe)
 
@@ -27,6 +27,7 @@ configure_file(assets/standard-frag.glsl assets/standard-frag.glsl COPYONLY)
 configure_file(assets/court-vert.glsl assets/court-vert.glsl COPYONLY)
 configure_file(assets/court-frag.glsl assets/court-frag.glsl COPYONLY)
 configure_file(assets/court.obj assets/court.obj COPYONLY)
+configure_file(assets/ball.obj assets/ball.obj COPYONLY)
 
 # Enable warnings
 if(MSVC)

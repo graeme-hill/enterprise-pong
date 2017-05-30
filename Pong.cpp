@@ -6,6 +6,7 @@ Pong::Pong(Engine &engine) :
 	_engine(engine),
 	_paddleMesh(Paddle::getMeshData()),
 	_courtMesh(Court::getMeshData()),
+	_ballMesh(Ball::getMeshData()),
 	_standardMaterial("standard"),
 	_courtMaterial("court")
 {
@@ -82,4 +83,10 @@ void Pong::step(float delta)
 		auto translated = glm::translate(m, glm::vec3(-2.0f, -0.5f, 0.0f));
 		return translated;
 	});
+
+	// ball
+
+	renderer.setActiveShader(_courtMaterial.shader());
+	_courtMaterial.mvp().set(vp * glm::mat4(1.0f));
+	_ballMesh.render();
 }
