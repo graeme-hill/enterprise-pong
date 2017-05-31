@@ -29,4 +29,5 @@ private:
 
 	Paddle _p1;
 	Paddle _p2;
+	Ball _ball;
 };

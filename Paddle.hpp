@@ -5,16 +5,21 @@
 #include <iostream>
 #include <functional>
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 class Paddle
 {
 public:
 	Paddle();
-	void transform(std::function<glm::mat4(glm::mat4)> fn);
-	glm::mat4 matrix() const { return _matrix; }
+	void setPosition(glm::vec3 position);
+	void translate(glm::vec3 translation);
+	glm::mat4 matrix() const;
 
 	static xe::MeshData getMeshData();
 
 private:
+	void updateMatrix();
+
+	glm::vec3 _position;
 	glm::mat4 _matrix;
 };

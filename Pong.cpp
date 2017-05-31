@@ -8,7 +8,8 @@ Pong::Pong(Engine &engine) :
 	_courtMesh(Court::getMeshData()),
 	_ballMesh(Ball::getMeshData()),
 	_standardMaterial("standard"),
-	_courtMaterial("court")
+	_courtMaterial("court"),
+	_ball({ -2.0f, 1.0f, 0.0f })
 {
 	std::cout << "Pong ctor\n";
 }
@@ -49,44 +50,28 @@ void Pong::step(float delta)
 
 	glm::mat4 vp = _camera.viewProjection();
 
+	// init shader
+
+	renderer.setActiveShader(_standardMaterial.shader());
+
 	// court
 
-	renderer.setActiveShader(_courtMaterial.shader());
-	_courtMaterial.mvp().set(vp * glm::mat4(1.0f));
+	_standardMaterial.mvp().set(vp * glm::mat4(1.0f));
 	_courtMesh.render();
 
 	// paddles
 
-	renderer.setActiveShader(_standardMaterial.shader());
-
-	_p1.transform([delta](glm::mat4 m)
-	{
-		return glm::rotate(m, delta * 0.003f, glm::vec3(0.0f, 1.0f, 0.0f));
-	});
-
+	_p1.setPosition({ 0.0f, 0.5f, -10.0f });
 	_standardMaterial.mvp().set(vp * _p1.matrix());
 	_paddleMesh.render();
 
-	_p2.transform([delta](glm::mat4 m)
-	{
-		auto translated = glm::translate(m, glm::vec3(2.0f, 0.5f, 0.0f));
-		auto rotated = glm::rotate(
-			translated, delta * -0.003f, glm::vec3(0.0f, 0.0f, 1.0f));
-		return rotated;
-	});
-
+	_p2.setPosition({ 0.0f, 0.5f, 10.0f });
 	_standardMaterial.mvp().set(vp * _p2.matrix());
 	_paddleMesh.render();
 
-	_p2.transform([delta](glm::mat4 m)
-	{
-		auto translated = glm::translate(m, glm::vec3(-2.0f, -0.5f, 0.0f));
-		return translated;
-	});
-
 	// ball
 
-	renderer.setActiveShader(_courtMaterial.shader());
-	_courtMaterial.mvp().set(vp * glm::mat4(1.0f));
+	auto ballMatrix = glm::translate(glm::mat4(1.0f), _ball.position());
+	_standardMaterial.mvp().set(vp * ballMatrix);
 	_ballMesh.render();
 }

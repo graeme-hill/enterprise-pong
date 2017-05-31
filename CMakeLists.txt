@@ -26,6 +26,7 @@ configure_file(assets/standard-vert.glsl assets/standard-vert.glsl COPYONLY)
 configure_file(assets/standard-frag.glsl assets/standard-frag.glsl COPYONLY)
 configure_file(assets/court-vert.glsl assets/court-vert.glsl COPYONLY)
 configure_file(assets/court-frag.glsl assets/court-frag.glsl COPYONLY)
+configure_file(assets/paddle.obj assets/paddle.obj COPYONLY)
 configure_file(assets/court.obj assets/court.obj COPYONLY)
 configure_file(assets/ball.obj assets/ball.obj COPYONLY)
 
