@@ -7,4 +7,5 @@ MovementSystem::MovementSystem(float minX, float maxX, float minZ, float maxZ) :
 glm::vec3 MovementSystem::updateBall(float delta, MovementState movement)
 {
 	glm::vec3 pos = movement.position + (movement.velocity * delta);
+	return pos;
 }

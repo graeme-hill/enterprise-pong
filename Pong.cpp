@@ -47,6 +47,11 @@ void Pong::step(float delta)
 		_camera.zoom(delta * -0.01f);
 	}
 
+	// movement
+
+	auto newBallPos = _movementSystem.updateBall(delta, _ball.movement());
+	_ball.setPosition(newBallPos);
+
 	// camera
 
 	glm::mat4 vp = _camera.viewProjection();
