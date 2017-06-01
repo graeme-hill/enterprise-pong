@@ -9,7 +9,8 @@ Pong::Pong(Engine &engine) :
 	_ballMesh(Ball::getMeshData()),
 	_standardMaterial("standard"),
 	_courtMaterial("court"),
-	_ball({ -2.0f, 1.0f, 0.0f })
+	_ball({ -2.0f, 1.0f, 0.0f }),
+	_movementSystem(-9.0f, 9.0f, -11.0f, 11.0f)
 {
 	std::cout << "Pong ctor\n";
 }

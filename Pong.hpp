@@ -7,6 +7,7 @@
 #include "Court.hpp"
 #include "Ball.hpp"
 #include "Materials.hpp"
+#include "MovementSystem.hpp"
 
 class Pong;
 
@@ -26,6 +27,7 @@ private:
 	StandardMaterial _standardMaterial;
 	CourtMaterial _courtMaterial;
 	xe::Camera _camera;
+	MovementSystem _movementSystem;
 
 	Paddle _p1;
 	Paddle _p2;

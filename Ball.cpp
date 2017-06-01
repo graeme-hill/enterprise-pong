@@ -1,8 +1,17 @@
 #include "Ball.hpp"
 #include "xe/AssetReaders.hpp"
 
-Ball::Ball(glm::vec3 position) : _position(position)
+Ball::Ball(glm::vec3 position) : _movement(movementFromPosition(position))
 { }
+
+void Ball::setPosition(glm::vec3 position)
+{
+	_
+}
+
+MovementState Ball::movementFromPosition()
+{
+}
 
 xe::MeshData Ball::getMeshData()
 {
