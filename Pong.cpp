@@ -9,8 +9,8 @@ Pong::Pong(Engine &engine) :
 	_ballMesh(Ball::getMeshData()),
 	_standardMaterial("standard"),
 	_courtMaterial("court"),
-	_ball({ -2.0f, 1.0f, 0.0f }),
-	_movementSystem(-9.0f, 9.0f, -11.0f, 11.0f)
+	_movementSystem(-9.0f, 9.0f, -11.0f, 11.0f),
+	_ball({ -2.0f, 1.0f, 0.0f }, 0.5f)
 {
 	std::cout << "Pong ctor\n";
 }
@@ -72,7 +72,7 @@ void Pong::step(float delta)
 
 	// ball
 
-	auto ballMatrix = glm::translate(glm::mat4(1.0f), _ball.position());
+	auto ballMatrix = glm::translate(glm::mat4(1.0f), _ball.movement().position);
 	_standardMaterial.mvp().set(vp * ballMatrix);
 	_ballMesh.render();
 }

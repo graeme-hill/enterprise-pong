@@ -17,7 +17,13 @@ endif(NOT GLM_FOUND)
 
 add_subdirectory(modules/xe)
 
-set(SOURCES Main.cpp Pong.cpp Paddle.cpp Court.cpp Ball.cpp)
+set(SOURCES
+	Main.cpp
+	Pong.cpp
+	Paddle.cpp
+	Court.cpp
+	Ball.cpp
+	MovementSystem.cpp)
 add_executable(pong ${SOURCES})
 target_link_libraries(pong xe)
 

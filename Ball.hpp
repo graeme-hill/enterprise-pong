@@ -7,13 +7,12 @@
 class Ball
 {
 public:
-	Ball(glm::vec3 position);
+	Ball(glm::vec3 position, float radius);
 	MovementState movement() const { return _movement; }
 	void setPosition(glm::vec3 position);
 
 	static xe::MeshData getMeshData();
 
 private:
-	MovementState movementFromPosition();
 	MovementState _movement;
 };
