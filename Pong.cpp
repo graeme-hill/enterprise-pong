@@ -13,6 +13,8 @@ Pong::Pong(Engine &engine) :
 	_ball({ -2.0f, 1.0f, 0.0f }, 0.5f)
 {
 	std::cout << "Pong ctor\n";
+	_p1.setPosition({ 0.0f, 0.5f, -10.0f });
+	_p2.setPosition({ 0.0f, 0.5f, 10.0f });
 }
 
 void Pong::step(float delta)
@@ -47,6 +49,24 @@ void Pong::step(float delta)
 		_camera.zoom(delta * -0.01f);
 	}
 
+	if (keyboard.isDown(xe::TKey::Z))
+	{
+		_movementSystem.updatePaddle(delta, -1.0f, _p1);
+	}
+	if (keyboard.isDown(xe::TKey::C))
+	{
+		_movementSystem.updatePaddle(delta, 1.0f, _p1);
+	}
+
+	if (keyboard.isDown(xe::TKey::Comma))
+	{
+		_movementSystem.updatePaddle(delta, -1.0f, _p2);
+	}
+	if (keyboard.isDown(xe::TKey::Slash))
+	{
+		_movementSystem.updatePaddle(delta, 1.0f, _p2);
+	}
+
 	// movement
 
 	_movementSystem.updateBall(delta, _ball);
@@ -67,11 +87,9 @@ void Pong::step(float delta)
 
 	// paddles
 
-	_p1.setPosition({ 0.0f, 0.5f, -10.0f });
 	_standardMaterial.mvp().set(vp * _p1.matrix());
 	_paddleMesh.render();
 
-	_p2.setPosition({ 0.0f, 0.5f, 10.0f });
 	_standardMaterial.mvp().set(vp * _p2.matrix());
 	_paddleMesh.render();
 

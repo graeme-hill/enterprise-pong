@@ -5,7 +5,8 @@
 
 #define BIG_NUMBER 1000000.0f
 #define ALMOST_ZERO 0.000001f
-#define MAX_SPEED 0.05f
+#define MAX_SPEED 0.03f
+#define PADDLE_SPEED 0.015f
 
 xe::Intersection xBoundIntersect(
 	glm::vec3 p, glm::vec3 v, float minX, float maxX)
@@ -101,4 +102,10 @@ void MovementSystem::updateBall(float delta, Ball &ball)
 			v *= 1.1f;
 		}
 	}
+}
+
+void MovementSystem::updatePaddle(float delta, float dir, Paddle &paddle)
+{
+	auto xDiff = delta * dir * PADDLE_SPEED;
+	paddle.translate(glm::vec3(xDiff, 0.0f, 0.0f));
 }

@@ -2,6 +2,7 @@
 
 #include "Components.hpp"
 #include "Ball.hpp"
+#include "Paddle.hpp"
 #include <glm/glm.hpp>
 
 class MovementSystem
@@ -9,6 +10,7 @@ class MovementSystem
 public:
 	MovementSystem(float minX, float maxX, float minZ, float maxZ);
 	void updateBall(float delta, Ball &ball);
+	void updatePaddle(float delta, float dir, Paddle &paddle);
 
 private:
 	float _minX;
