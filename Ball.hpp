@@ -10,6 +10,7 @@ public:
 	Ball(glm::vec3 position, float radius);
 	MovementState movement() const { return _movement; }
 	void setPosition(glm::vec3 position);
+	void setVelocity(glm::vec3 velocity);
 
 	static xe::MeshData getMeshData();
 

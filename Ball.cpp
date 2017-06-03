@@ -2,12 +2,17 @@
 #include "xe/AssetReaders.hpp"
 
 Ball::Ball(glm::vec3 position, float radius) :
-	_movement{ position, glm::vec3(0.005f, 0.0f, 0.006f), radius }
+	_movement{ position, glm::vec3(0.02f, 0.0f, 0.01f), radius }
 { }
 
 void Ball::setPosition(glm::vec3 position)
 {
 	_movement.position = position;
+}
+
+void Ball::setVelocity(glm::vec3 velocity)
+{
+	_movement.velocity = velocity;
 }
 
 xe::MeshData Ball::getMeshData()

@@ -1,13 +1,14 @@
 #pragma once
 
 #include "Components.hpp"
+#include "Ball.hpp"
 #include <glm/glm.hpp>
 
 class MovementSystem
 {
 public:
 	MovementSystem(float minX, float maxX, float minZ, float maxZ);
-	glm::vec3 updateBall(float delta, MovementState movement);
+	void updateBall(float delta, Ball &ball);
 
 private:
 	float _minX;
