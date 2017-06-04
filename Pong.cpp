@@ -69,8 +69,7 @@ void Pong::step(float delta)
 
 	// movement
 
-	_movementSystem.updateBall(delta, _ball);
-	//std::cout << _ball.movement().velocity.z << std::endl;
+	_movementSystem.updateBall(delta, _ball, _p1, _p2);
 
 	// camera
 

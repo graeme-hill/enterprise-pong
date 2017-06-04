@@ -14,6 +14,9 @@ public:
 	void setPosition(glm::vec3 position);
 	void translate(glm::vec3 translation);
 	glm::mat4 matrix() const;
+	glm::vec3 position() const { return _position; }
+	float depth() const { return 1.0f; }
+	float width() const { return 4.0f; }
 
 	static xe::MeshData getMeshData();
 

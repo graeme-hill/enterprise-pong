@@ -9,7 +9,7 @@ class MovementSystem
 {
 public:
 	MovementSystem(float minX, float maxX, float minZ, float maxZ);
-	void updateBall(float delta, Ball &ball);
+	void updateBall(float delta, Ball &ball, Paddle &p1, Paddle &p2);
 	void updatePaddle(float delta, float dir, Paddle &paddle);
 
 private:

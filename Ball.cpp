@@ -2,7 +2,7 @@
 #include "xe/AssetReaders.hpp"
 
 Ball::Ball(glm::vec3 position, float radius) :
-	_movement{ position, glm::vec3(0.02f, 0.0f, 0.01f), radius }
+	_movement{ position, glm::vec3(0.002f, 0.0f, 0.01f), radius }
 { }
 
 void Ball::setPosition(glm::vec3 position)
