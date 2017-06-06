@@ -1,13 +1,13 @@
-#version 300 es
+//#version 200
 
 precision mediump float;
 
 uniform mat4 mvp;
 
-layout (location = 0) in vec3 position;
-layout (location = 1) in vec3 normal;
+attribute vec3 position;
+attribute vec3 normal;
 
-out vec3 vColor;
+varying vec3 vColor;
 
 void main()
 {

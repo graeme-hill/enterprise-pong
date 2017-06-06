@@ -1,19 +1,17 @@
 cmake_minimum_required(VERSION 3.5.1)
 project(pong)
 
-# add_definitions(-DPLATFORM_LINUX)
-# add_definitions(-DPLATFORM_GLFW)
+option(JS "JS" OFF)
+
+if(JS)
+	set(OUTFILE "pong.html")
+else()
+	set(OUTFILE "pong")
+endif()
 
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
-
-# Require GLM
-find_package(GLM REQUIRED)
-include_directories(${GLM_INCLUDE_DIR})
-if(NOT GLM_FOUND)
-    message(ERROR " GLM not found!")
-endif(NOT GLM_FOUND)
 
 add_subdirectory(modules/xe)
 
@@ -24,8 +22,14 @@ set(SOURCES
 	Court.cpp
 	Ball.cpp
 	MovementSystem.cpp)
-add_executable(pong ${SOURCES})
-target_link_libraries(pong xe)
+add_executable(${OUTFILE} ${SOURCES})
+target_link_libraries(${OUTFILE} xe)
+
+if (JS)
+	target_link_libraries(${OUTFILE} "--embed-file assets")
+endif()
+
+target_compile_definitions(xe PUBLIC GLM_FORCE_PURE)
 
 # copy assets to bin dir
 configure_file(assets/standard-vert.glsl assets/standard-vert.glsl COPYONLY)

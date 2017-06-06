@@ -1,5 +1,5 @@
 #include "Pong.hpp"
-#include <glm/glm.hpp>
+#include "glm/glm.hpp"
 #include "xe/TKey.hpp"
 
 Pong::Pong(Engine &engine) :
