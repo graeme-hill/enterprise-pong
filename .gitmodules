@@ -7,3 +7,6 @@
 [submodule "modules/glfw"]
 	path = modules/glfw
 	url = git@github.com:graeme-hill/glfw
+[submodule "modules/glm"]
+	path = modules/glm
+	url = git@github.com:graeme-hill/glm
