@@ -10,3 +10,6 @@
 [submodule "modules/glm"]
 	path = modules/glm
 	url = git@github.com:graeme-hill/glm
+[submodule "modules/glew"]
+	path = modules/glew
+	url = git@github.com:graeme-hill/glew
