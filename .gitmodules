@@ -13,3 +13,9 @@
 [submodule "modules/glew"]
 	path = modules/glew
 	url = git@github.com:graeme-hill/glew
+[submodule "modules/websocketpp"]
+	path = modules/websocketpp
+	url = git@github.com:graeme-hill/websocketpp
+[submodule "modules/xs"]
+	path = modules/xs
+	url = git@github.com:graeme-hill/crossgameserver
