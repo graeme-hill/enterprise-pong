@@ -3,7 +3,7 @@
 ### Linux
 
 ```
-sudo apt-get install cmake libfreetype6-dev libglew-dev
+sudo apt-get install cmake libfreetype6-dev libglew-dev libboost-all-dev
 ```
 
 ### Windows

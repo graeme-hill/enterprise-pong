@@ -27,6 +27,9 @@ target_link_libraries(${OUTFILE} xe)
 
 if (JS)
 	target_link_libraries(${OUTFILE} "--embed-file assets")
+else()
+	add_subdirectory(modules/xs)
+	target_link_libraries(${OUTFILE} xs)
 endif()
 
 target_compile_definitions(xe PUBLIC GLM_FORCE_PURE)
