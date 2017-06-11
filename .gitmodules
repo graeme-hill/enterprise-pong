@@ -19,3 +19,6 @@
 [submodule "modules/xs"]
 	path = modules/xs
 	url = git@github.com:graeme-hill/crossgameserver
+[submodule "modules/flatbuffers"]
+	path = modules/flatbuffers
+	url = git@github.com:graeme-hill/flatbuffers

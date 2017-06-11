@@ -9,6 +9,25 @@ else()
 	set(OUTFILE "pong")
 endif()
 
+set(GEN_DIR ${CMAKE_SOURCE_DIR}/generated)
+set(FBS_EXE ${CMAKE_BINARY_DIR}/modules/xe/flatbuffers/flatc)
+
+# Make sure the generated/ folder exists
+# add_custom_command(
+# 	COMMAND mkdir -p ${GEN_DIR}
+# 	OUTPUT ${GEN_DIR}
+# 	COMMENT "Creating generated/ folder")
+
+# Auto-generate flatbuffers classes
+include_directories(modules/flatbuffers/include)
+add_custom_command(
+	COMMAND ${FBS_EXE} --cpp -o ${GEN_DIR} ${CMAKE_SOURCE_DIR}/GameMessage.fbs
+	DEPENDS ${FBS_EXE} ${CMAKE_SOURCE_DIR}/GameMessage.fbs # generated ${FBS_EXE}
+	OUTPUT ${GEN_DIR}/GameMessage_generated.h
+	COMMENT "Generate flatbuffers")
+add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage_generated.h)
+add_dependencies(codegen flatc)
+
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
@@ -22,6 +41,7 @@ set(SOURCES
 	Court.cpp
 	Ball.cpp
 	MovementSystem.cpp)
+#	generated/GameMessage.c++)
 add_executable(${OUTFILE} ${SOURCES})
 target_link_libraries(${OUTFILE} xe)
 

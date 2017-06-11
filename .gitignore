@@ -1,3 +1,8 @@
 build/
 .backup/
 wbuild/
+generated/*.c++
+generated/*.c
+generated/*.cpp
+generated/*.h
+generated/*.hpp

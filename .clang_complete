@@ -1,1 +1,3 @@
 -Imodules
+-Imodules/capnproto/c++/src
+-Imodules/flatbuffers/include
