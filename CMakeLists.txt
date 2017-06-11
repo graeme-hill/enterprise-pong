@@ -20,13 +20,15 @@ set(FBS_EXE ${CMAKE_BINARY_DIR}/modules/xe/flatbuffers/flatc)
 
 # Auto-generate flatbuffers classes
 include_directories(modules/flatbuffers/include)
-add_custom_command(
-	COMMAND ${FBS_EXE} --cpp -o ${GEN_DIR} ${CMAKE_SOURCE_DIR}/GameMessage.fbs
-	DEPENDS ${FBS_EXE} ${CMAKE_SOURCE_DIR}/GameMessage.fbs # generated ${FBS_EXE}
-	OUTPUT ${GEN_DIR}/GameMessage_generated.h
-	COMMENT "Generate flatbuffers")
-add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage_generated.h)
-add_dependencies(codegen flatc)
+if(NOT JS)
+	add_custom_command(
+		COMMAND ${FBS_EXE} --cpp -o ${GEN_DIR} ${CMAKE_SOURCE_DIR}/GameMessage.fbs
+		DEPENDS ${FBS_EXE} ${CMAKE_SOURCE_DIR}/GameMessage.fbs # generated ${FBS_EXE}
+		OUTPUT ${GEN_DIR}/GameMessage_generated.h
+		COMMENT "Generate flatbuffers")
+	add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage_generated.h)
+	add_dependencies(codegen flatc)
+endif()
 
 include_directories(modules)
 set(CMAKE_CXX_STANDARD 14)
