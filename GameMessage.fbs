@@ -1,31 +1,44 @@
-namespace MyGame.Sample;
-
-enum Color:byte { Red = 0, Green, Blue = 2 }
-
-union Equipment { Weapon } // Optionally add more tables.
+namespace msg;
 
 struct Vec3 {
-  x:float;
-  y:float;
-  z:float;
+	x:float;
+	y:float;
+	z:float;
 }
 
-table Monster {
-  pos:Vec3; // Struct.
-  mana:short = 150;
-  hp:short = 100;
-  name:string;
-  friendly:bool = false (deprecated);
-  inventory:[ubyte];  // Vector of scalars.
-  color:Color = Blue; // Enum.
-  weapons:[Weapon];   // Vector of tables.
-  equipped:Equipment; // Union.
-  path:[Vec3];        // Vector of structs.
+struct SpaceTime {
+	position:Vec3;
+	time:ulong;
 }
 
-table Weapon {
-  name:string;
-  damage:short;
+table Bounce {
+	time:ulong;
+	bouncer:ubyte;
+	contactPoint:Vec3;
+	tragectory:Vec3;
 }
 
-root_type Monster;
+table Goal {
+	time:ulong;
+	scorer:ubyte;
+	scoree:ubyte;
+	contactPoint:Vec3;
+}
+
+table PaddleMovement {
+	time:ulong;
+	player:ubyte;
+	lastPosition:SpaceTime;
+}
+
+union Message {
+	Bounce,
+	Goal,
+	PaddleMovement
+}
+
+table Payload {
+	message:Message;
+}
+
+root_type Payload;
