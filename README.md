@@ -3,11 +3,10 @@
 ### Linux
 
 ```
-sudo apt-get install cmake libfreetype6-dev libglew-dev libboost-all-dev
+sudo apt-get install cmake libfreetype6-dev
 ```
 
 ### Windows
 
 * Windows SDK
 * CMake
-dd
