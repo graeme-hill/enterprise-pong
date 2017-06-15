@@ -1,4 +1,3 @@
-[submodule "modules/xe"]
-	path = modules/xe
+[submodule "xe"]
+	path = xe
 	url = git@github.com:graeme-hill/crossengine
-
