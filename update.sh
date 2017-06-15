@@ -1,3 +1,3 @@
 git pull origin master && \
-git submodule foreach git pull origin master && \
-git submodule foreach git branch
+git submodule foreach --recursive git pull origin master && \
+git submodule foreach --recursive git branch
