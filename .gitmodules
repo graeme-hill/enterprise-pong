@@ -22,3 +22,6 @@
 [submodule "modules/flatbuffers"]
 	path = modules/flatbuffers
 	url = git@github.com:graeme-hill/flatbuffers
+[submodule "modules/asio"]
+	path = modules/asio
+	url = git@github.com:graeme-hill/asio

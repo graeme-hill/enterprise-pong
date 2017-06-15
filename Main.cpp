@@ -1,8 +1,10 @@
+#include <string>
+#include <iostream>
 #include "Pong.hpp"
 #include "xs/Server.hpp"
 #include "xe/Backplane.hpp"
-
 #include "generated/GameMessage.hpp"
+#include "xs/WebSocketClient.hpp"
 
 class Handler
 {
@@ -31,25 +33,41 @@ inline void Handler::receive(T thing)
 	std::cout << "unknown\n";
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-	xe::Backplane<msg::Payload, Handler> backplane;
-	flatbuffers::FlatBufferBuilder fbb(1024);
+	std::string mode = argc > 1
+		? argv[1]
+		: "game";
+	std::cout << "args: " << argc << std::endl;
+	// xe::Backplane<msg::Payload, Handler> backplane;
+	// flatbuffers::FlatBufferBuilder fbb(1024);
+	//
+	// auto p = msg::Vec3(0, 0, 0);
+	// auto b = msg::CreateGoal(fbb, 0, 0, 0, &p);
+	// auto po = msg::CreatePayload(fbb, msg::Message_Goal, b.Union());
+	// fbb.Finish(po);
+	// auto bp = fbb.ReleaseBufferPointer();
+	//
+	// backplane.post(std::move(bp));
+	// Handler handler;
+	//
+	// std::cout << "1\n";
+	// backplane.receive(handler);
+	// std::cout << "2\n";
+	// backplane.receive(handler);
 
-	auto p = msg::Vec3(0, 0, 0);
-	auto b = msg::CreateGoal(fbb, 0, 0, 0, &p);
-	auto po = msg::CreatePayload(fbb, msg::Message_Goal, b.Union());
-	fbb.Finish(po);
-	auto bp = fbb.ReleaseBufferPointer();
-
-	backplane.post(std::move(bp));
-	Handler handler;
-
-	std::cout << "1\n";
-	backplane.receive(handler);
-	std::cout << "2\n";
-	backplane.receive(handler);
-
-	//xs::run();
-	xe::play<Pong>();
+	if (mode == "client")
+	{
+		std::cout << "startClient()\n";
+		xs::startClient();
+	}
+	else if (mode == "server")
+	{
+		std::cout << "startServer()\n";
+		xs::startServer();
+	}
+	else
+	{
+		xe::play<Pong>();
+	}
 }
