@@ -10,7 +10,7 @@ else()
 endif()
 
 set(GEN_DIR ${CMAKE_SOURCE_DIR}/generated)
-set(FBS_EXE ${CMAKE_BINARY_DIR}/modules/xe/flatbuffers/flatc)
+set(FBS_EXE ${CMAKE_BINARY_DIR}/xe/modules/flatbuffers/flatc)
 
 # Make sure the generated/ folder exists
 # add_custom_command(
@@ -19,7 +19,7 @@ set(FBS_EXE ${CMAKE_BINARY_DIR}/modules/xe/flatbuffers/flatc)
 # 	COMMENT "Creating generated/ folder")
 
 # Auto-generate flatbuffers classes
-include_directories(modules/flatbuffers/include)
+include_directories(xe/modules/flatbuffers/include)
 if(NOT JS)
 	add_custom_command(
 		COMMAND ${FBS_EXE} --cpp -o ${GEN_DIR} ${CMAKE_SOURCE_DIR}/GameMessage.fbs
@@ -30,11 +30,11 @@ if(NOT JS)
 	add_dependencies(codegen flatc)
 endif()
 
-include_directories(modules)
+include_directories(xe xe/modules)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-add_subdirectory(modules/xe)
+add_subdirectory(xe)
 
 set(SOURCES
 	Main.cpp
@@ -50,7 +50,7 @@ target_link_libraries(${OUTFILE} xe)
 if (JS)
 	target_link_libraries(${OUTFILE} "--embed-file assets")
 else()
-	add_subdirectory(modules/xs)
+	add_subdirectory(xe/modules/xs)
 	target_link_libraries(${OUTFILE} xs)
 endif()
 
