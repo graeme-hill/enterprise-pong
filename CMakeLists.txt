@@ -30,7 +30,12 @@ if(NOT JS)
 	add_dependencies(codegen flatc)
 endif()
 
-include_directories(xe xe/modules)
+include_directories(
+	xe
+	xe/modules
+	xe/modules/websocketpp
+	xe/modules/flatbuffers/include
+	xe/modules/asio/asio/include)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
@@ -49,9 +54,6 @@ target_link_libraries(${OUTFILE} xe)
 
 if (JS)
 	target_link_libraries(${OUTFILE} "--embed-file assets")
-else()
-	add_subdirectory(xe/modules/xs)
-	target_link_libraries(${OUTFILE} xs)
 endif()
 
 target_compile_definitions(xe PUBLIC GLM_FORCE_PURE)

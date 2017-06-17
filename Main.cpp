@@ -1,10 +1,11 @@
 #include <string>
 #include <iostream>
 #include "Pong.hpp"
-#include "xs/Server.hpp"
 #include "xe/Backplane.hpp"
 #include "generated/GameMessage.hpp"
-#include "xs/WebSocketClient.hpp"
+
+#include "xe/WebSocketClient.hpp"
+#include "xe/WebSocketServer.hpp"
 
 class Handler
 {
@@ -59,12 +60,12 @@ int main(int argc, char *argv[])
 	if (mode == "client")
 	{
 		std::cout << "startClient()\n";
-		xs::startClient();
+		xe::WebSocketClient("ws://localhost:9002");
 	}
 	else if (mode == "server")
 	{
 		std::cout << "startServer()\n";
-		xs::startServer();
+		xe::WebSocketServer(9002);
 	}
 	else
 	{
