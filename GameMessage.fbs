@@ -31,10 +31,15 @@ table PaddleMovement {
 	lastPosition:SpaceTime;
 }
 
+table Chat {
+	text:string;
+}
+
 union Message {
 	Bounce,
 	Goal,
-	PaddleMovement
+	PaddleMovement,
+	Chat
 }
 
 table Payload {

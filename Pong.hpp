@@ -3,11 +3,14 @@
 #include "xe/Engine.hpp"
 #include "xe/Camera.hpp"
 #include "xe/MeshData.hpp"
+#include "xe/Backplane.hpp"
+#include "xe/WebSocketClient.hpp"
 #include "Paddle.hpp"
 #include "Court.hpp"
 #include "Ball.hpp"
 #include "Materials.hpp"
 #include "MovementSystem.hpp"
+#include "Handler.hpp"
 
 class Pong;
 
@@ -21,6 +24,9 @@ public:
 
 private:
 	Engine &_engine;
+	xe::WebSocketClient _client;
+	xe::Backplane<xe::WebSocketClient, Handler> _backplane;
+
 	xe::TMesh _paddleMesh;
 	xe::TMesh _courtMesh;
 	xe::TMesh _ballMesh;

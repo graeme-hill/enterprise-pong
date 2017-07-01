@@ -39,13 +39,13 @@ int main(int argc, char *argv[])
 	std::string mode = argc > 1
 		? argv[1]
 		: "game";
-	std::cout << "args: " << argc << std::endl;
+	
 	// xe::Backplane<msg::Payload, Handler> backplane;
 	// flatbuffers::FlatBufferBuilder fbb(1024);
 	//
-	// auto p = msg::Vec3(0, 0, 0);
-	// auto b = msg::CreateGoal(fbb, 0, 0, 0, &p);
-	// auto po = msg::CreatePayload(fbb, msg::Message_Goal, b.Union());
+	// auto msg = fbb.CreateString("hello world");
+	// auto chat = msg::CreateChat(fbb, msg);
+	// auto po = msg::CreatePayload(fbb, msg::Message_Chat, b.Union());
 	// fbb.Finish(po);
 	// auto bp = fbb.ReleaseBufferPointer();
 	//
@@ -59,12 +59,24 @@ int main(int argc, char *argv[])
 
 	if (mode == "client")
 	{
-		std::cout << "startClient()\n";
-		xe::WebSocketClient("ws://localhost:9002");
+		xe::WebSocketClient client("ws://localhost:9002");
+		while (true)
+		{
+			std::string msgStr;
+			std::cin >> msgStr;
+
+			flatbuffers::FlatBufferBuilder fbb(1024);
+			auto msg = fbb.CreateString(msgStr);
+			auto chat = msg::CreateChat(fbb, msg);
+			auto po = msg::CreatePayload(fbb, msg::Message_Chat, chat.Union());
+			fbb.Finish(po);
+			auto bp = fbb.ReleaseBufferPointer();
+
+			client.send(bp);
+		}
 	}
 	else if (mode == "server")
 	{
-		std::cout << "startServer()\n";
 		xe::WebSocketServer(9002);
 	}
 	else
