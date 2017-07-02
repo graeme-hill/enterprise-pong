@@ -3,7 +3,6 @@
 #include "xe/Engine.hpp"
 #include "xe/Camera.hpp"
 #include "xe/MeshData.hpp"
-#include "xe/Backplane.hpp"
 #include "xe/WebSocketClient.hpp"
 #include "Paddle.hpp"
 #include "Court.hpp"
@@ -21,11 +20,10 @@ class Pong
 public:
 	Pong(Engine &engine);
 	void step(float delta);
+	using MessageHandler = Handler;
 
 private:
 	Engine &_engine;
-	xe::WebSocketClient _client;
-	xe::Backplane<xe::WebSocketClient, Handler> _backplane;
 
 	xe::TMesh _paddleMesh;
 	xe::TMesh _courtMesh;

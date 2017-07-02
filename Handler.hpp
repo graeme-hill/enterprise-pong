@@ -1,6 +1,7 @@
 #pragma once
 
 #include "flatbuffers/flatbuffers.h"
+#include "generated/GameMessage.hpp"
 
 class Handler
 {
@@ -11,7 +12,7 @@ public:
 	void receiveBuffer(flatbuffers::DetachedBuffer const &buffer);
 };
 
-void Handler::receiveBuffer(flatbuffers::DetachedBuffer const &buffer)
+inline void Handler::receiveBuffer(flatbuffers::DetachedBuffer const &buffer)
 {
 	auto p = msg::GetPayload(buffer.data());
 	p->message_receive(*this);
