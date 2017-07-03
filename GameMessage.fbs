@@ -29,6 +29,7 @@ table PaddleMovement {
 	time:ulong;
 	player:ubyte;
 	lastPosition:SpaceTime;
+	direction:Vec3;
 }
 
 table Chat {

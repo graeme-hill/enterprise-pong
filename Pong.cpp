@@ -51,6 +51,7 @@ void Pong::step(float delta)
 
 	if (keyboard.isDown(xe::TKey::Z))
 	{
+		// flatbuffers::FlatBufferBuilder fbb(1024);
 		_movementSystem.updatePaddle(delta, -1.0f, _p1);
 	}
 	if (keyboard.isDown(xe::TKey::C))
