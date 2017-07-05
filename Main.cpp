@@ -56,25 +56,25 @@ int main(int argc, char *argv[])
 	// std::cout << "2\n";
 	// backplane.receive(handler);
 
-	if (mode == "client")
-	{
-		xe::WebSocketClient client("ws://localhost:9002");
-		while (true)
-		{
-			std::string msgStr;
-			std::cin >> msgStr;
-
-			flatbuffers::FlatBufferBuilder fbb(1024);
-			auto msg = fbb.CreateString(msgStr);
-			auto chat = msg::CreateChat(fbb, msg);
-			auto po = msg::CreatePayload(fbb, msg::Message_Chat, chat.Union());
-			fbb.Finish(po);
-			auto bp = fbb.ReleaseBufferPointer();
-
-			client.send(bp);
-		}
-	}
-	else if (mode == "server")
+	// if (mode == "client")
+	// {
+	// 	xe::WebSocketClient client("ws://localhost:9002");
+	// 	while (true)
+	// 	{
+	// 		std::string msgStr;
+	// 		std::cin >> msgStr;
+	//
+	// 		flatbuffers::FlatBufferBuilder fbb(1024);
+	// 		auto msg = fbb.CreateString(msgStr);
+	// 		auto chat = msg::CreateChat(fbb, msg);
+	// 		auto po = msg::CreatePayload(fbb, msg::Message_Chat, chat.Union());
+	// 		fbb.Finish(po);
+	// 		auto bp = fbb.ReleaseBufferPointer();
+	//
+	// 		client.send(bp);
+	// 	}
+	// }
+	if (mode == "server")
 	{
 		xe::WebSocketServer(9002);
 	}

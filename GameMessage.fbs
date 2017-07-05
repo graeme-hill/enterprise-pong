@@ -25,11 +25,28 @@ table Goal {
 	contactPoint:Vec3;
 }
 
-table PaddleMovement {
+table PaddleGoLeft {
 	time:ulong;
 	player:ubyte;
 	lastPosition:SpaceTime;
-	direction:Vec3;
+}
+
+table PaddleGoRight {
+	time:ulong;
+	player:ubyte;
+	lastPosition:SpaceTime;
+}
+
+table PaddleStopLeft {
+	time:ulong;
+	player:ubyte;
+	lastPosition:SpaceTime;
+}
+
+table PaddleStopRight {
+	time:ulong;
+	player:ubyte;
+	lastPosition:SpaceTime;
 }
 
 table Chat {
@@ -39,7 +56,10 @@ table Chat {
 union Message {
 	Bounce,
 	Goal,
-	PaddleMovement,
+	PaddleGoLeft,
+	PaddleGoRight,
+	PaddleStopLeft,
+	PaddleStopRight,
 	Chat
 }
 

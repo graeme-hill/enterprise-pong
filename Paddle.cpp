@@ -3,7 +3,7 @@
 #include "xe/File.hpp"
 #include <iostream>
 
-Paddle::Paddle() : _matrix(1.0f)
+Paddle::Paddle() : _matrix(1.0f), _goingLeft(false), _goingRight(false)
 { }
 
 void Paddle::setPosition(glm::vec3 position)

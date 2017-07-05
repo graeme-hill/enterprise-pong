@@ -17,6 +17,10 @@ public:
 	glm::vec3 position() const { return _position; }
 	float depth() const { return 1.0f; }
 	float width() const { return 4.0f; }
+	bool goingLeft() const { return _goingLeft; }
+	bool goingRight() const { return _goingRight; }
+	void goingLeft(bool val) { _goingLeft = val; }
+	void goingRight(bool val) { _goingRight = val; }
 
 	static xe::MeshData getMeshData();
 
@@ -25,4 +29,7 @@ private:
 
 	glm::vec3 _position;
 	glm::mat4 _matrix;
+
+	bool _goingLeft;
+	bool _goingRight;
 };
