@@ -26,7 +26,7 @@ table Goal {
 }
 
 table PaddleGoLeft {
-	time:ulong;
+	time:uint;
 	player:ubyte;
 	lastPosition:SpaceTime;
 }
@@ -53,6 +53,18 @@ table Chat {
 	text:string;
 }
 
+table JoinRequest {
+	id:uint;
+}
+
+table JoinResponse {
+	success:bool;
+	player:ubyte;
+}
+
+table Start {
+}
+
 union Message {
 	Bounce,
 	Goal,
@@ -60,7 +72,10 @@ union Message {
 	PaddleGoRight,
 	PaddleStopLeft,
 	PaddleStopRight,
-	Chat
+	Chat,
+	JoinRequest,
+	JoinResponse,
+	Start
 }
 
 table Payload {

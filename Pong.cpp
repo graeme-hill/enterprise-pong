@@ -10,7 +10,8 @@ Pong::Pong(Engine &engine) :
 	_standardMaterial("standard"),
 	_courtMaterial("court"),
 	_movementSystem(-9.0f, 9.0f, -11.0f, 11.0f),
-	_ball({ -2.0f, 1.0f, 0.0f }, 0.5f)
+	_ball({ -2.0f, 1.0f, 0.0f }, 0.5f),
+	_paddles{ &_p1, &_p2 }
 {
 	_p1.setPosition({ 0.0f, 0.5f, -10.0f });
 	_p2.setPosition({ 0.0f, 0.5f, 10.0f });
@@ -180,25 +181,30 @@ void Pong::onGoal(const msg::Goal *message)
 
 void Pong::onPaddleGoLeft(const msg::PaddleGoLeft *message)
 {
-	_p1.goingLeft(true);
+	getPaddle(message->player())->goingLeft(true);
 }
 
 void Pong::onPaddleGoRight(const msg::PaddleGoRight *message)
 {
-	_p1.goingRight(true);
+	getPaddle(message->player())->goingRight(true);
 }
 
 void Pong::onPaddleStopLeft(const msg::PaddleStopLeft *message)
 {
-	_p1.goingLeft(false);
+	getPaddle(message->player())->goingLeft(false);
 }
 
 void Pong::onPaddleStopRight(const msg::PaddleStopRight *message)
 {
-	_p1.goingRight(false);
+	getPaddle(message->player())->goingRight(false);
 }
 
 void Pong::onChat(const msg::Chat *message)
 {
 	std::cout << "onChat\n";
+}
+
+Paddle *Pong::getPaddle(unsigned player)
+{
+	return _paddles.at((player - 1) % _paddles.size());
 }

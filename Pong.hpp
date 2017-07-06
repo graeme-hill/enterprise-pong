@@ -30,6 +30,7 @@ public:
 	void onPaddleStopLeft(const msg::PaddleStopLeft *message);
 	void onPaddleStopRight(const msg::PaddleStopRight *message);
 	void onChat(const msg::Chat *message);
+	Paddle *getPaddle(unsigned player);
 
 private:
 	Engine &_engine;
@@ -45,4 +46,5 @@ private:
 	Paddle _p1;
 	Paddle _p2;
 	Ball _ball;
+	std::vector<Paddle *> _paddles;
 };
