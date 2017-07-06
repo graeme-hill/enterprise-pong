@@ -204,6 +204,21 @@ void Pong::onChat(const msg::Chat *message)
 	std::cout << "onChat\n";
 }
 
+void Pong::onJoinRequest(const msg::JoinRequest *joinRequest)
+{
+	std::cout << "onJoinRequest\n";
+}
+
+void Pong::onJoinResponse(const msg::JoinResponse *joinResponse)
+{
+	std::cout << "onJoinResponse\n";
+}
+
+void Pong::onStart(const msg::Start *start)
+{
+	std::cout << "onStart\n";
+}
+
 Paddle *Pong::getPaddle(unsigned player)
 {
 	return _paddles.at((player - 1) % _paddles.size());

@@ -30,6 +30,9 @@ public:
 	void onPaddleStopLeft(const msg::PaddleStopLeft *message);
 	void onPaddleStopRight(const msg::PaddleStopRight *message);
 	void onChat(const msg::Chat *message);
+	void onJoinRequest(const msg::JoinRequest *joinRequest);
+	void onJoinResponse(const msg::JoinResponse *joinResponse);
+	void onStart(const msg::Start *start);
 	Paddle *getPaddle(unsigned player);
 
 private:
