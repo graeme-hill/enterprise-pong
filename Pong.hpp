@@ -1,20 +1,17 @@
 #pragma once
 
 #include "xe/Engine.hpp"
-#include "xe/Camera.hpp"
-#include "xe/MeshData.hpp"
-#include "xe/WebSocketClient.hpp"
-#include "Paddle.hpp"
-#include "Court.hpp"
-#include "Ball.hpp"
-#include "Materials.hpp"
-#include "MovementSystem.hpp"
 #include "generated/GameMessage.hpp"
 #include "xe/Blob.hpp"
+#include "PlayPong.hpp"
+#include "MenuPong.hpp"
+#include "Util.hpp"
 
-class Pong;
-
-using Engine = xe::Engine<Pong>;
+enum class GameState
+{
+	Menu,
+	Playing
+};
 
 class Pong
 {
@@ -33,21 +30,10 @@ public:
 	void onJoinRequest(const msg::JoinRequest *joinRequest);
 	void onJoinResponse(const msg::JoinResponse *joinResponse);
 	void onStart(const msg::Start *start);
-	Paddle *getPaddle(unsigned player);
 
 private:
 	Engine &_engine;
-
-	xe::TMesh _paddleMesh;
-	xe::TMesh _courtMesh;
-	xe::TMesh _ballMesh;
-	StandardMaterial _standardMaterial;
-	CourtMaterial _courtMaterial;
-	xe::Camera _camera;
-	MovementSystem _movementSystem;
-
-	Paddle _p1;
-	Paddle _p2;
-	Ball _ball;
-	std::vector<Paddle *> _paddles;
+	GameState _gameState;
+	PlayPong _play;
+	MenuPong _menu;
 };
