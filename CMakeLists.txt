@@ -49,7 +49,8 @@ set(SOURCES
 	Ball.cpp
 	MovementSystem.cpp
 	PlayPong.cpp
-	MenuPong.cpp)
+	MenuPong.cpp
+	PongServer.cpp)
 #	generated/GameMessage.c++)
 add_executable(${OUTFILE} ${SOURCES})
 target_link_libraries(${OUTFILE} xe)

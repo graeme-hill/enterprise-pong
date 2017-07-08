@@ -1,24 +1,26 @@
 #include "PongServer.hpp"
+#include "generated/GameMessage.hpp"
 
-void join(const msg::JoinRequest *joinReq, xe::ServerDispatcher &dispatcher)
+void join(
+	const msg::JoinRequest *joinReq, xe::SmallGroupServerDispatcher &dispatcher)
 {
-	auto join = dispatcher.join(payload->message_as_JoinRequest()->id());
-	auto response = msg::CreateJoinResponsePayload(join.success, join.player);
-	dispatcher.reply(response);
+	auto join = dispatcher.joinGroup(joinReq->id());
+	dispatcher.reply(msg::CreateJoinResponsePayload(join.success, join.player));
 	if (join.player == 2)
 	{
 		dispatcher.broadcast(msg::CreateStartPayload());
 	}
 }
 
-void PongServer::onMessage(xe::Blob blob, xe::ServerDispatcher &dispatcher)
+void PongServer::onMessage(
+	xe::Blob blob, xe::SmallGroupServerDispatcher &dispatcher)
 {
 	auto payload = msg::GetPayload(blob.dataPtr());
 	auto type = payload->message_type();
 	switch (type)
 	{
 	case msg::Message_JoinRequest:
-		join(payload->message_as_JoinRequest());
+		join(payload->message_as_JoinRequest(), dispatcher);
 		break;
 	default:
 		dispatcher.forward(blob);

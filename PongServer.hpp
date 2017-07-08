@@ -1,7 +1,10 @@
 #pragma once
 
+#include "xe/Blob.hpp"
+#include "xe/SmallGroupServerDispatcher.hpp"
+
 class PongServer
 {
 public:
-	onMessage(xe::Blob blob, xe::ServerDispatcher &dispatcher);
+	void onMessage(xe::Blob blob, xe::SmallGroupServerDispatcher &dispatcher);
 };
