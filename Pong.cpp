@@ -17,6 +17,12 @@ void Pong::step(xe::Frame frame)
 	{
 	case GameState::Menu:
 		_menu.step(frame);
+		_engine.bus().receive(*this);
+		// _engine.bus().receiveIf(*this, [](const xe::Blob &blob) -> bool
+		// {
+		// 	auto p = msg::GetPayload(blob.dataPtr());
+		// 	return p->message_type() == msg::Message_Start;
+		// });
 		break;
 	case GameState::Playing:
 		_play.step(frame);
@@ -29,6 +35,7 @@ void Pong::step(xe::Frame frame)
 
 void Pong::receiveBlob(xe::Blob blob)
 {
+	std::cout << "INCOMING BLOB\n";
 	auto p = msg::GetPayload(blob.dataPtr());
 	p->message_receive(*this);
 }

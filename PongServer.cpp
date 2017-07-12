@@ -1,13 +1,17 @@
 #include "PongServer.hpp"
 #include "generated/GameMessage.hpp"
+#include <iostream>
 
 void join(
 	const msg::JoinRequest *joinReq, xe::SmallGroupServerDispatcher &dispatcher)
 {
+	std::cout << "!!! JOIN !!!\n";
 	auto join = dispatcher.joinGroup(joinReq->id());
 	dispatcher.reply(msg::CreateJoinResponsePayload(join.success, join.player));
+	std::cout << "player " << join.player << std::endl;
 	if (join.player == 2)
 	{
+		std::cout << "!!! START !!!\n";
 		dispatcher.broadcast(msg::CreateStartPayload());
 	}
 }
