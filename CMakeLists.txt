@@ -59,7 +59,7 @@ if (JS)
 	target_link_libraries(${OUTFILE} "--embed-file assets")
 endif()
 
-target_compile_definitions(xe PUBLIC GLM_FORCE_PURE)
+target_compile_definitions(xe PUBLIC GLM_FORCE_PURE FEATURE_SERVER)
 
 # copy assets to bin dir
 configure_file(assets/standard-vert.glsl assets/standard-vert.glsl COPYONLY)

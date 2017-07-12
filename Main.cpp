@@ -3,11 +3,11 @@
 #include "Pong.hpp"
 #include "generated/GameMessage.hpp"
 #include "PongServer.hpp"
+
+#ifdef FEATURE_SERVER
 #include "xe/GameServer.hpp"
 #include "xe/SmallGroupWebSocketConfig.hpp"
-
-#include "xe/WebSocketClient.hpp"
-#include "xe/WebSocketServer.hpp"
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +17,11 @@ int main(int argc, char *argv[])
 
 	if (mode == "server")
 	{
+		#ifdef FEATURE_SERVER
 		xe::serve<xe::SmallGroupWebSocketConfig<PongServer>>(9002);
+		#else
+		std::cout << "Server is not enabled in this build. Good bye.\n";
+		#endif
 	}
 	else
 	{
