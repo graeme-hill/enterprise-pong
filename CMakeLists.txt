@@ -25,9 +25,9 @@ if(NOT JS)
 	add_custom_command(
 		COMMAND ${FBS_EXE} --cpp -o ${GEN_DIR} ${CMAKE_SOURCE_DIR}/GameMessage.fbs
 		DEPENDS ${FBS_EXE} ${CMAKE_SOURCE_DIR}/GameMessage.fbs # generated ${FBS_EXE}
-		OUTPUT ${GEN_DIR}/GameMessage_generated.h
+		OUTPUT ${GEN_DIR}/GameMessage.hpp
 		COMMENT "Generate flatbuffers")
-	add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage_generated.h)
+	add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage.hpp)
 	add_dependencies(codegen flatc)
 	set(FEATURES FEATURE_SERVER)
 endif()
@@ -53,7 +53,7 @@ set(SOURCES
 	PlayPong.cpp
 	MenuPong.cpp
 	PongServer.cpp)
-#	generated/GameMessage.c++)
+
 add_executable(${OUTFILE} ${SOURCES})
 target_link_libraries(${OUTFILE} xe)
 
