@@ -28,6 +28,7 @@ if(NOT JS)
 		COMMENT "Generate flatbuffers")
 	add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage_generated.h)
 	add_dependencies(codegen flatc)
+	target_compile_definitions(xe PUBLIC FEATURE_SERVER)
 endif()
 
 include_directories(
@@ -59,7 +60,7 @@ if (JS)
 	target_link_libraries(${OUTFILE} "--embed-file assets")
 endif()
 
-target_compile_definitions(xe PUBLIC GLM_FORCE_PURE FEATURE_SERVER)
+target_compile_definitions(xe PUBLIC GLM_FORCE_PURE)
 
 # copy assets to bin dir
 configure_file(assets/standard-vert.glsl assets/standard-vert.glsl COPYONLY)
