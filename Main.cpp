@@ -5,7 +5,7 @@
 #include "PongServer.hpp"
 
 #ifdef FEATURE_SERVER
-#include "xe/GameServerddd.hpp"
+#include "xe/GameServer.hpp"
 #include "xe/SmallGroupWebSocketConfig.hpp"
 #endif
 
