@@ -10,14 +10,17 @@ void MenuPong::step(xe::Frame frame)
 
 	if (keyboard.justReleased(xe::TKey::N1))
 	{
+		std::cout << "1\n";
 		_engine.bus().post(msg::CreateJoinRequestPayload(1));
 	}
 	else if (keyboard.justReleased(xe::TKey::N2))
 	{
+		std::cout << "2\n";
 		_engine.bus().post(msg::CreateJoinRequestPayload(2));
 	}
 	else if (keyboard.justReleased(xe::TKey::N3))
 	{
+		std::cout << "3\n";
 		_engine.bus().post(msg::CreateJoinRequestPayload(3));
 	}
 }
