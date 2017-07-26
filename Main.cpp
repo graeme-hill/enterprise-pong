@@ -3,6 +3,7 @@
 #include "Pong.hpp"
 #include "generated/GameMessage.hpp"
 #include "PongServer.hpp"
+#include "xg/Guid.hpp"
 
 #ifdef FEATURE_SERVER
 #include "xe/GameServer.hpp"
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
 	if (mode == "server")
 	{
 		#ifdef FEATURE_SERVER
+		std::cout << xg::newGuid() << std::endl;
 		xe::serve<xe::SmallGroupWebSocketConfig<PongServer>>(9002);
 		#else
 		std::cout << "Server is not enabled in this build. Good bye.\n";
