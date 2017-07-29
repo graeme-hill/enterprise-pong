@@ -35,8 +35,8 @@ void Pong::step(xe::Frame frame)
 
 void Pong::receiveBlob(xe::Blob blob)
 {
-	std::cout << "INCOMING BLOB\n";
 	auto p = msg::GetPayload(blob.dataPtr());
+	std::cout << "INCOMING BLOB type: " << p->message_type() << std::endl;
 	p->message_receive(*this);
 }
 
