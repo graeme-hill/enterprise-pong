@@ -7,6 +7,7 @@ Pong::Pong(Engine &engine) :
 	_gameState(GameState::Menu),
 	_play(engine),
 	_menu(engine)
+	//_textManager({ { 4096, 4096 } }, { { 4096, 4096 } })
 {
 	_engine.bus().connect("ws://localhost:9002");
 }

@@ -1,11 +1,12 @@
 #pragma once
 
+#include "Util.hpp"
 #include "xe/Engine.hpp"
 #include "generated/GameMessage.hpp"
 #include "xe/Blob.hpp"
 #include "PlayPong.hpp"
 #include "MenuPong.hpp"
-#include "Util.hpp"
+//#include "xe/TText.hpp"
 
 enum class GameState
 {
@@ -36,4 +37,5 @@ private:
 	GameState _gameState;
 	PlayPong _play;
 	MenuPong _menu;
+	//xt::TText::Manager _textManager;
 };

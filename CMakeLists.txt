@@ -30,6 +30,12 @@ if(NOT JS)
 	add_custom_target(codegen ALL DEPENDS ${GEN_DIR}/GameMessage.hpp)
 	add_dependencies(codegen flatc)
 	set(FEATURES FEATURE_SERVER)
+
+	find_package (Freetype)
+	if (FREETYPE_FOUND)
+		include_directories(${FREETYPE_INCLUDE_DIRS})
+		#target_link_libraries (crosstext ${FREETYPE_LIBRARIES})
+	endif (FREETYPE_FOUND)
 endif()
 
 include_directories(
@@ -71,6 +77,7 @@ configure_file(assets/court-frag.glsl assets/court-frag.glsl COPYONLY)
 configure_file(assets/paddle.obj assets/paddle.obj COPYONLY)
 configure_file(assets/court.obj assets/court.obj COPYONLY)
 configure_file(assets/ball.obj assets/ball.obj COPYONLY)
+configure_file(assets/tennis.ply assets/tennis.ply COPYONLY)
 
 # Enable warnings
 if(MSVC)
